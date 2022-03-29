@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Add User</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="../css/shards.min.css"> -->
+</head>
+
+<body>
+<div class="container my-5">
+    <h3> Add New Books</h3>
+    <div class="card">
+        <div class="card-body">
+            <div class="col-md-10">
+                <form action="#" th:action="@{/save}" th:object="${books}"method="post">
+                    
+                        <div class="form-group col-md-8">
+                            <label for="name" class="col-form-label">Name</label> <input type="text" th:field="*{name}" class="form-control" id="name" placeholder="Name"> <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="text-danger"></span>
+                        </div>
+                        
+                        <div class="form-group col-md-8">
+                            <label for="email" class="col-form-label">Publisher</label> <input type="text" th:field="*{publisher}" class="form-control" id="publisher" placeholder="publisher"> <span th:if="${#fields.hasErrors('publisher')}" th:errors="*{publisher}" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group col-md-8">
+                            <label for="phoneNo" class="col-form-label">Publish Date</label> <input type="text" th:field="*{publish_date}" class="form-control" id="publish_date" placeholder="publish_date"> <span th:if="${#fields.hasErrors('publish_date')}" th:errors="*{publish_date}" class="text-danger"></span>
+                        </div>
+                        
+                        <div class="form-group col-md-8">
+                            <label for="phoneNo" class="col-form-label">Genre</label> <input type="text" th:field="*{genre}" class="form-control" id="genre" placeholder="genre"> <span th:if="${#fields.hasErrors('genre')}" th:errors="*{genre}" class="text-danger"></span>
+                        </div>
+                        
+                        <div class="form-group col-md-8">
+                            <label for="phoneNo" class="col-form-label">Price</label> <input type="text" th:field="*{price}" class="form-control" id="price" placeholder="price"> <span th:if="${#fields.hasErrors('price')}" th:errors="*{price}" class="text-danger"></span>
+                        </div>
+                    
+                        <div class="col-md-6">
+                            <input type="submit" class="btn btn-warning" value="Save">
+                        </div>
+
+                        <div class="form-group col-md-8"></div>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

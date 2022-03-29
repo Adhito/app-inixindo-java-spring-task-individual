@@ -1,45 +1,64 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-	<meta charset="utf-8" />
-	<title>Product Manager</title>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Users</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> 
+    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous"> -->
+    <!--<link rel="stylesheet" href="css/bootstrap.css">-->
+    <!-- <link rel="stylesheet" href="../css/shards.min.css"> -->
 </head>
 
 <body>
-	<div align="center">
-		<h1>Product List</h1>
-		<a href="/new">Create New Product</a>
-		<br /><br />
-		<table border="1" cellpadding="10">
-			<thead>
-				<tr>
-					<th>Product ID</th>
-					<th>Book Name</th>
-					<th>Publisher</th>
-					<th>Published Date</th>
-					<th>Genre</th>
-					<th>Price</th>
-					<th>Actions</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr th:each="product : ${listProducts}">
-					<td th:text="${product.id}">Product ID</td>
-					<td th:text="${product.name}">Book Name</td>
-					<td th:text="${product.publisher}">Publisher</td>
-					<td th:text="${product.publish_date}">Published Date</td>
-					<td th:text="${product.genre}">Genre</td>
-					<td th:text="${product.price}">Price</td>
-					<td>
-						<a th:href="@{'/edit/' + ${product.id}}">Edit</a>
-						&nbsp;&nbsp;&nbsp;
-						<a th:href="@{'/delete/' + ${product.id}}">Delete</a>
-					</td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
+<div class="container my-2">
+    <div class="card">
+        <div class="card-body">
+            <div th:switch="${listBooks}" class="container my-5">
+            
+                <p class="my-5">
+                    <a href="/new" class="btn btn-warning"> Add Book </a>
+                </p>
+                
+                <div class="col-md">
+                    <h2 th:case="null">No Books yet!</h2>
+                    <div th:case="*">
+                        <table class="table table-striped table-responsive-md">
+                            <thead>
+                            <tr>
+								<th>Product ID</th>
+								<th>Book Name</th>
+								<th>Publisher</th>
+								<th>Published Date</th>
+								<th>Genre</th>
+								<th>Price</th>
+								<th>Actions</th>
+                            </tr>
+                            </thead>
+								<tbody>
+									<tr th:each="books : ${listBooks}">
+										<td th:text="${books.id}">Product ID</td>
+										<td th:text="${books.name}">Book Name</td>
+										<td th:text="${books.publisher}">Publisher</td>
+										<td th:text="${books.publish_date}">Published Date</td>
+										<td th:text="${books.genre}">Genre</td>
+										<td th:text="${books.price}">Price</td>
+										<td>
+											<a th:href="@{'/edit/' + ${books.id}}">Edit</a>
+											&nbsp;&nbsp;&nbsp;
+											<a th:href="@{'/delete/' + ${books.id}}">Delete</a>
+										</td>
+									</tr>
+								</tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 
 </html>
