@@ -7,14 +7,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.inixindo.bookstore.model.Books;
-import com.inixindo.bookstore.repository.ProductRepository;
+import com.inixindo.bookstore.repository.BookRepository;
  
 @Service
 @Transactional
-public class ProductService {
+public class BookService {
  
     @Autowired
-    private ProductRepository repo;
+    private BookRepository repo;
      
     public List<Books> listAll() {
         return repo.findAll();

@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.inixindo.bookstore.model.Books;
 
-public interface ProductRepository extends JpaRepository<Books, Long> {
+public interface BookRepository extends JpaRepository<Books, Long> {
  
 }
