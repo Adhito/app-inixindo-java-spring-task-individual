@@ -1,6 +1,9 @@
-spring.jpa.hibernate.ddl-auto=none
+spring.jpa.hibernate.ddl-auto=u
 spring.datasource.url=jdbc:mysql://localhost:3306/inixtraining_springboot_mvc_individual_task
 spring.datasource.username=root
 spring.datasource.password=
+spring.datasource.driverClassName=com.mysql.cj.jdbc.Driver
 logging.level.root=WARN
 server.port= 3000
+
+
