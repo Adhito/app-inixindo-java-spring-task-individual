@@ -13,45 +13,40 @@
   </head>
 
 <body>
-<div class="container my-2">
 
-<!--	<nav class="navbar navbar-light bg-light">
+	<!--Navbar Section -->
+	<div class="container my-2">
+	  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	    <span class="navbar-toggler-icon"></span>
+	  </button>
+	  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+	    <ul class="navbar-nav mr-auto">
+	      <li class="nav-item active">
+	        <a class="nav-link" href="/index">Home <span class="sr-only">(current)</span></a>
+	      </li>
+	      <li class="nav-item dropdown">
+	        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	          Action
+	        </a>
+	        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+	          <a class="dropdown-item" href="/new" > Add Book </a>
+	          <div class="dropdown-divider"></div>
+	          <a class="dropdown-item" href="#">Subtask-01A</a>
+	          <a class="dropdown-item" href="#">Subtask-01B</a>
+	          <div class="dropdown-divider"></div>
+	          <a class="dropdown-item" href="#">Subtask-2A</a>
+	          <a class="dropdown-item" href="#">Subtask-2B</a>
+	        </div>
+	      </li>
+	    </ul>
 	    <form class="form-inline my-2 my-lg-0" th:action="@{/logout}" method="get">
 	      <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Logout</button>
 	    </form>
-	</nav>-->
-	
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+	  </div>
+	</nav>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-    
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
-      
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Action
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="/new" > Add Book </a>
-          <a class="dropdown-item" href="#">Subtask-01B</a>
-          <a class="dropdown-item" href="#">Subtask-01B</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Subtask-2</a>
-        </div>
-      </li>
-    </ul>
-    <form class="form-inline my-2 my-lg-0" th:action="@{/logout}" method="get">
-      <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Logout</button>
-    </form>
-  </div>
-</nav>
-
+	<!--Table Section -->
     <div class="card">
         <div class="card-body">
             <div th:switch="${listBooks}" class="container my-5">
@@ -86,13 +81,13 @@
 										</td>
 									</tr>
 								</tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+	                        </table>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
