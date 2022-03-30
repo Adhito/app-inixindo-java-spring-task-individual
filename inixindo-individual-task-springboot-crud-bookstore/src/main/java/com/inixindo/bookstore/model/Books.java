@@ -9,7 +9,7 @@ import lombok.Data;
  
 @Entity (name="books")
 @Data
-public class Books { // nama class disesuaikan dengan nama tabel / entity	
+public class Books {
     private Long id;
     private String name;
     private String publisher;
