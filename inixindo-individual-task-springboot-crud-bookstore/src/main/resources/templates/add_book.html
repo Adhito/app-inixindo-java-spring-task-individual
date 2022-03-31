@@ -8,7 +8,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+	<link rel="stylesheet" type="text/css" th:href="@{/css/registration.css}"/>
     <title> Add Book</title>
   </head>
 
@@ -17,6 +17,7 @@
 
 	<!--Navbar Section -->
 	<div class="container my-2">
+	
 	  <nav class="navbar navbar-expand-lg navbar-light bg-light">
 	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 	    <span class="navbar-toggler-icon"></span>
@@ -33,11 +34,14 @@
 	        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 	          <a class="dropdown-item" href="/new" > Add Book </a>
 	          <div class="dropdown-divider"></div>
-	          <a class="dropdown-item" href="#">Subtask-01A</a>
-	          <a class="dropdown-item" href="#">Subtask-01B</a>
-	          <div class="dropdown-divider"></div>
-	          <a class="dropdown-item" href="#">Subtask-2A</a>
-	          <a class="dropdown-item" href="#">Subtask-2B</a>
+	          <a class="dropdown-item" href="#">#DummyNav</a>
+	          <a class="dropdown-item" href="#">#DummyNav</a>
+	          <!--
+			  <div class="dropdown-divider"></div>
+	          <a class="dropdown-item" href="#">#DummyNav</a>
+	          <a class="dropdown-item" href="#">#DummyNav</a>
+	          -->
+
 	        </div>
 	      </li>
 	    </ul>
@@ -54,11 +58,21 @@
 	    <div class="card">
 	        <div class="card-body">
 	            <div class="col-md-10">
-	                <form action="#" th:action="@{/save}" th:object="${books}"method="post">
+	                	<form action="#" th:action="@{/save}" th:object="${books}"method="post">
 	                    
+	                    	<!-- -->
 	                        <div class="form-group col-md-8">
-	                            <label for="name" class="col-form-label">Name</label> <input type="text" th:field="*{name}" class="form-control" id="name" placeholder="Name"> <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="text-danger"></span>
+	                            <label 	for="name" 
+	                            		class="col-form-label">
+	                            		Name</label> 
+	                            <input 	type="text" 
+	                            		th:field="*{name}" 
+	                            		class="form-control" 
+	                            		id="name" placeholder="Name"> 
+	                            		<span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="text-danger"></span>
 	                        </div>
+	                        
+	                                                
 	                        
 	                        <div class="form-group col-md-8">
 	                            <label for="email" class="col-form-label">Publisher</label> <input type="text" th:field="*{publisher}" class="form-control" id="publisher" placeholder="publisher"> <span th:if="${#fields.hasErrors('publisher')}" th:errors="*{publisher}" class="text-danger"></span>

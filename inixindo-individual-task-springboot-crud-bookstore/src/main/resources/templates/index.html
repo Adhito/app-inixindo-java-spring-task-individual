@@ -58,20 +58,52 @@
                 <div class="col-md">
                     <h2 th:case="null">No Books yet!</h2>
                     <div th:case="*">
-                    <!--
-                    <h2 align="center"> Adhito's 'Bookstore </h2>
-                    <br />
-                    -->
-					  <form th:action="@{/index}" method="get">
-						  <input type="text" name="keyword" th:value="${keyword}"  placeholder="Search Book" size="50" >
-						  <button type="submit" class="btn btn-dark" >Search</button>
-						  <button type="submit" class="btn btn-dark" >Reset</button>
-					  </form>
+
+
+					<!-- Search Box and Reset
+				    <form th:action="@{/index}" method="get">
+						<input type="text" name="keyword" th:value="${keyword}"  placeholder="Search Book" size="50" >
+						<button type="submit" class="btn btn-dark" >Search</button>
+					    <button type="submit" class="btn btn-dark" >Reset</button>
+				    </form>
+				    -->
 					  <br />
 					  
                         <table class="table table-striped table-responsive-md">
                             <thead>
                             <tr>
+                            
+							     <th>
+							     <a th:href="@{'/index/page/' + ${currentPage} + '?sortField=id&sortDir=' + ${reverseSortDir}}">
+							       Product ID</a>
+							     </th>
+							     
+							     <th>
+							     <a th:href="@{'/index/page/' + ${currentPage} + '?sortField=name&sortDir=' + ${reverseSortDir}}">
+							       Book Name</a>
+							     </th>
+							     
+							     <th>
+							     <a th:href="@{'/index/page/' + ${currentPage} + '?sortField=publisher&sortDir=' + ${reverseSortDir}}">
+							       Publisher</a>
+							     </th>         
+
+							     <th>
+							     <a th:href="@{'/index/page/' + ${currentPage} + '?sortField=publish_date&sortDir=' + ${reverseSortDir}}">
+							       Published Date</a>
+							     </th>
+							     
+							     <th>
+							     <a th:href="@{'/index/page/' + ${currentPage} + '?sortField=genre&sortDir=' + ${reverseSortDir}}">
+							       Genre</a>
+							     </th>  							       							     
+							             
+							     <th>
+							     <a th:href="@{'/index/page/' + ${currentPage} + '?sortField=price&sortDir=' + ${reverseSortDir}}">
+							       Price</a>
+							     </th>  	
+							     							                
+							    <!--               
 								<th>Product ID</th>
 								<th>Book Name</th>
 								<th>Publisher</th>
@@ -79,6 +111,7 @@
 								<th>Genre</th>
 								<th>Price</th>
 								<th>Actions</th>
+								-->
                             </tr>
                             </thead>
 								<tbody>
@@ -150,7 +183,8 @@
 								</tbody>
 	                        </table>
 	                         
-	                        <!--Pagination Logic-->
+
+	                        <!-- Pagination Logic 
 							<div th:if="${totalPages > 1}">
 							    <div class="row col-sm-14">
 							        <div class="col-sm-2">
@@ -160,7 +194,8 @@
 							        <div class="col">
 							            <span th:each="i: ${#numbers.sequence(1, totalPages)}">
 									      <a th:if="${currentPage != i}" th:href="@{'/index/page/' + ${i}}">[[${i}]]</a>
-									      <span th:unless="${currentPage != i}">[[${i}]]</span> <!--&nbsp; &nbsp;-->
+									      <span th:unless="${currentPage != i}">[[${i}]]</span> 
+
 							            </span>
 							        </div>
 							        
@@ -185,7 +220,43 @@
 							            <span th:unless="${currentPage < totalPages}">Last</span>
 							        </div>
 							    </div>
-							</div>	 
+							</div>
+							-->
+							
+							<!-- Pagination Logic -->
+							<div th:if = "${totalPages > 1}">
+							   <div class = "row col-sm-10">
+							    <div class = "col-sm-2">
+							     Total Rows: [[${totalItems}]] 
+							    </div>
+							    <div class = "col col-sm-3">
+							     <span th:each="i: ${#numbers.sequence(1, totalPages)}">
+							      <a th:if="${currentPage != i}" th:href="@{'/index/page/' + ${i}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">[[${i}]]</a>
+							      <span th:unless="${currentPage != i}">[[${i}]]</span>  &nbsp; &nbsp;
+							     </span>
+							    </div>
+							    
+							    <div class = "col col-sm-1">
+							     <a th:if="${currentPage > 1}" th:href="@{'/index/page/1' + '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">First</a>
+							     <span th:unless="${currentPage > 1}">First</span>
+							    </div>
+							    
+							    <div class = "col col-sm-1">
+							     <a th:if="${currentPage > 1}" th:href="@{'/index/page/' + ${currentPage - 1}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Prev</a>
+							     <span th:unless="${currentPage > 1}">Prev</span>
+							    </div>							    
+							    
+							    <div class = "col col-sm-1">
+							     <a th:if="${currentPage < totalPages}" th:href="@{'/index/page/' + ${currentPage + 1}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Next</a>
+							     <span th:unless="${currentPage < totalPages}">Next</span>
+							    </div>
+							    
+							     <div class="col col-sm-1">
+							        <a th:if="${currentPage < totalPages}" th:href="@{'/index/page/' + ${totalPages}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Last</a>
+							     <span th:unless="${currentPage < totalPages}">Last</span>
+							        </div>
+							   </div>
+							  </div>								 
 							                       
 	                    </div>
 	                </div>

@@ -39,8 +39,9 @@
                     <div class="col-sm-9">
                         <input type="text" th:field="*{name}" placeholder="Name"
                                class="form-control"/>
-                        <label th:if="${#fields.hasErrors('name')}" th:errors="*{name}"
-                               class="validation-message"></label>
+                        <label 	th:if="${#fields.hasErrors('name')}" 
+                        		th:errors="*{name}"
+                               	class="validation-message"></label>
                     </div>
                 </div>
 
