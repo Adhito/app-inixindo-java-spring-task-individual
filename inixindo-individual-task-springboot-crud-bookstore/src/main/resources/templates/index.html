@@ -33,11 +33,14 @@
 	        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 	          <a class="dropdown-item" href="/new" > Add Book </a>
 	          <div class="dropdown-divider"></div>
-	          <a class="dropdown-item" href="#">Subtask-01A</a>
-	          <a class="dropdown-item" href="#">Subtask-01B</a>
-	          <div class="dropdown-divider"></div>
-	          <a class="dropdown-item" href="#">Subtask-2A</a>
-	          <a class="dropdown-item" href="#">Subtask-2B</a>
+	          <a class="dropdown-item" href="#">#DummyNav</a>
+	          <a class="dropdown-item" href="#">#DummyNav</a>
+	          <!--
+			  <div class="dropdown-divider"></div>
+	          <a class="dropdown-item" href="#">#DummyNav</a>
+	          <a class="dropdown-item" href="#">#DummyNav</a>
+	          -->
+
 	        </div>
 	      </li>
 	    </ul>
@@ -138,19 +141,19 @@
 	                         
 	                        <!--Pagination Logic-->
 							<div th:if="${totalPages > 1}">
-							    <div class="row col-sm-10">
+							    <div class="row col-sm-14">
 							        <div class="col-sm-2">
 							            Total Rows: [[${totalItems}]]
 							        </div>
 							        
-							        <div class="col-sm-1">
+							        <div class="col">
 							            <span th:each="i: ${#numbers.sequence(1, totalPages)}">
 									      <a th:if="${currentPage != i}" th:href="@{'/index/page/' + ${i}}">[[${i}]]</a>
 									      <span th:unless="${currentPage != i}">[[${i}]]</span> <!--&nbsp; &nbsp;-->
 							            </span>
 							        </div>
 							        							        
-							        <div class="col-sm-1">
+							        <div class="col text-right">
 							            <a th:if="${currentPage < totalPages}" th:href="@{'/index/page/' + ${currentPage + 1}}">Next</a>
 							            <span th:unless="${currentPage < totalPages}">Next</span>
 							        </div>
