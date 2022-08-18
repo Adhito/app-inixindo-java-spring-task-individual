@@ -60,10 +60,9 @@
 			<scope>test</scope>
 		</dependency>
 		
-		
-		
-		
-		
+
+
+
 		<!-- https://mvnrepository.com/artifact/javax.validation/validation-api -->
 		<dependency>
 		    <groupId>javax.validation</groupId>
@@ -90,6 +89,7 @@
             <version>1.12.5</version>
             <scope>test</scope>
         </dependency>
+        
 		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-validator -->
 		<dependency>
 		    <groupId>org.hibernate</groupId>
@@ -97,6 +97,12 @@
 		    <version>6.0.18.Final</version>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/com.oracle.database.jdbc/ojdbc8 -->
+		<dependency>
+		    <groupId>com.oracle.database.jdbc</groupId>
+		    <artifactId>ojdbc8</artifactId>
+		    <version>21.3.0.0</version>
+		</dependency>
         
 	</dependencies>
 

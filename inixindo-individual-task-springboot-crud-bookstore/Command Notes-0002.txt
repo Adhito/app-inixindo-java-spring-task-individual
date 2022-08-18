@@ -1,0 +1,20 @@
+Command Notes-0002:
+
+docker build -t app-javaspring-individual:latest .
+docker image rm app-javaspring-individual
+docker container rm app-javaspring-individual
+
+docker run -p 4000:4000 --name app-javaspring-individual --net network-db-oraclexe app-javaspring-individual
+docker run -p 4000:4000 --name app-javaspring-individual -e ORACLE_HOST=db-oraclexe -e ORACLE_PORT=1521 --net network-db-oraclexe app-javaspring-individual
+
+docker container rm app-javaspring-individual
+
+docker network connect network-db-oraclexe db-oraclexe
+docker network connect network-db-oraclexe app-javaspring-individual
+
+docker container start app-javaspring-individual
+
+docker logs app-javaspring-individual
+docker logs --follow app-javaspring-individual
+
+docker logs

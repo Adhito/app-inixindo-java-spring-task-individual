@@ -137,6 +137,7 @@ public class AppController {
 
 	@RequestMapping("/index")
 	public String viewHomePage(Model model) {
+		System.out.println("Get home");
 		return viewPage(model, 1, "id", "asc");
 	}
 

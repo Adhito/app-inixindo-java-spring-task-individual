@@ -1,0 +1,7 @@
+Command Notes-0001:
+$ docker build -t app-javaspring-individual:latest .
+$ docker container run --name app-javaspring-individual --network network-db-oraclexe -p 4000:4000 app-javaspring-individual
+$ docker container run --name app-javaspring-individual  -p 4000:4000 app-javaspring-individual
+$ docker container start app-javaspring-individual
+$ docker container rm app-javaspring-individual
+$ docker image rm app-javaspring-individual
